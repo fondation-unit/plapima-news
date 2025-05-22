@@ -48,11 +48,11 @@ if ($actusAccueil->have_posts()):
 				} else {
 					if ($i == 2):
 						?>
-						<div class="news-list d-flex flex-column col-md-7 col-12 ps-4">
+						<div class="news-list d-flex flex-column col-md-7 col-12 ps-md-4">
 					<?php
 					endif;
 					?>
-					<div class="news d-flex flex-row mb-4">
+					<div class="news d-flex flex-md-row flex-column mb-4 mt-md-0 mt-4">
 						<?php
 						if (has_post_thumbnail()):
 							?>
@@ -66,7 +66,7 @@ if ($actusAccueil->have_posts()):
 						<?php
 						endif;
 						?>
-						<div class="content ps-4">
+						<div class="content ps-md-4 mt-md-0 mt-3">
 							<h3>
 								<a href="<?php echo get_permalink(); ?>"><?php echo get_the_title(); ?></a>
 							</h3>
