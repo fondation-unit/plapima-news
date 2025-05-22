@@ -1,13 +1,12 @@
 import {Spinner} from '@wordpress/components';
-import {Component} from '@wordpress/element';
-import { useState } from "react";
+import {Component, useState} from '@wordpress/element';
 
 export default class PlapimaNews extends Component {
+
 	constructor(props) {
 		super(props);
 		this.state = {
-			formations: [],
-			num: 1,
+			posts: [],
 			loading: true
 		};
 	}
@@ -28,7 +27,6 @@ export default class PlapimaNews extends Component {
 	}
 
 	render() {
-		const [num, setNum] = useState(1);
 		return (
 			<div>
 				{this.state.loading ? (
@@ -37,20 +35,16 @@ export default class PlapimaNews extends Component {
 
 					<div className="d-flex flex-row flex-wrap">
 						{this.state.posts.map(currentPost => {
-							console.log(currentPost)
-							console.log(this.state.num)
 							return (
-								<div key={currentPost.id} className='col-md-6'>
-									test {this.state.num}
+								<div key={currentPost.id} className="col-md-6">
+									<h3>{currentPost.title.rendered}</h3>
 								</div>
 							);
-							{
-								setNum(this.state.num+1);
-							}
 						})}
 					</div>
 				)}
 			</div>
 		);
+
 	}
 }

@@ -13,7 +13,7 @@ import { registerBlockType } from '@wordpress/blocks';
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import './style.scss';
-
+import PlapimaNews from './edit';
 /**
  * Internal dependencies
  */
@@ -30,7 +30,7 @@ registerBlockType( metadata.name, {
 	/**
 	 * @see ./edit.js
 	 */
-	edit: Edit,
+	edit: PlapimaNews,
 
 	/**
 	 * @see ./save.js
