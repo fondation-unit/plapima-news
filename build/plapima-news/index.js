@@ -170,7 +170,7 @@ class PlapimaNews extends _wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Compon
   }
   runApiFetch() {
     wp.apiFetch({
-      path: 'wp/v2/posts?per_page=4'
+      path: 'wp/v2/posts?_embed&per_page=4'
     }).then(data => {
       this.setState({
         posts: data,
@@ -181,13 +181,37 @@ class PlapimaNews extends _wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Compon
   render() {
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       children: this.state.loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.Spinner, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "d-flex flex-row flex-wrap",
+        className: "news-list d-flex flex-column",
         children: this.state.posts.map(currentPost => {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "col-md-6",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
-              children: currentPost.title.rendered
-            })
+          console.log(currentPost);
+          let src = currentPost._embedded ? currentPost._embedded['wp:featuredmedia'][0].source_url : '';
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "news d-flex flex-row",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "col-md-4 d-flex align-items-center",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: "image rounded",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+                  src: src,
+                  alt: "",
+                  className: "rounded"
+                })
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "content ps-4",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+                dangerouslySetInnerHTML: {
+                  __html: currentPost.title.rendered
+                }
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: "date",
+                children: currentPost.date
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+                dangerouslySetInnerHTML: {
+                  __html: currentPost.excerpt.rendered
+                }
+              })]
+            })]
           }, currentPost.id);
         })
       })

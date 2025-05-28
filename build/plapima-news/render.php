@@ -9,7 +9,7 @@ $actusAccueil = new WP_Query([
 if ($actusAccueil->have_posts()):
 	$i = 1;
 	?>
-	<div class="container py-6">
+	<div class="container py-md-6 py-4">
 		<h2>Actualités</h2>
 		<div class="d-flex flex-md-row flex-column my-6">
 			<?php
@@ -59,7 +59,7 @@ if ($actusAccueil->have_posts()):
 							<div class="col-md-4 d-flex align-items-center">
 								<div class="image rounded">
 									<?php
-									the_post_thumbnail('medium', ['class' => 'rounded']);
+									the_post_thumbnail('medium_large', ['class' => 'rounded']);
 									?>
 								</div>
 							</div>

@@ -6,8 +6,64 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
-.wp-block-create-block-plapima-news {
-  border: 1px dotted #f00;
+.d-flex {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.rounded {
+  border-radius: 10px;
+}
+
+.news {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.news h3 {
+  text-transform: none;
+  line-height: 1;
+}
+.news h3 a {
+  text-decoration: none;
+}
+.news .content {
+  width: 75%;
+}
+.news .image {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  height: 140px;
+}
+.news .image img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.news .date {
+  font-size: 0.875rem;
+  color: rgba(0, 40, 42, 0.55);
+  font-weight: 600;
+}
+.news .bottom-link a {
+  font-size: 1.25rem;
+  text-underline-offset: 5px;
+}
+.news .understrap-read-more-link {
+  color: #00282a;
 }
 
 /*# sourceMappingURL=index.css.map*/

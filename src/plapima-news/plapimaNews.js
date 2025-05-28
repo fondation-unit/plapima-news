@@ -17,7 +17,7 @@ export default class PlapimaNews extends Component {
 
 	runApiFetch() {
 		wp.apiFetch({
-			path: 'wp/v2/posts?per_page=4'
+			path: 'wp/v2/posts?_embed&per_page=4'
 		}).then(data => {
 			this.setState({
 				posts: data,
@@ -33,11 +33,25 @@ export default class PlapimaNews extends Component {
 					<Spinner/>
 				) : (
 
-					<div className="d-flex flex-row flex-wrap">
+					<div className="news-list d-flex flex-column">
 						{this.state.posts.map(currentPost => {
+							console.log(currentPost);
+							let src = currentPost._embedded ? currentPost._embedded['wp:featuredmedia'][0].source_url
+								: '';
 							return (
-								<div key={currentPost.id} className="col-md-6">
-									<h3>{currentPost.title.rendered}</h3>
+								<div key={currentPost.id} className="news d-flex flex-row">
+									<div className="col-md-4 d-flex align-items-center">
+										<div className="image rounded">
+											<img src={src} alt="" className="rounded"/>
+										</div>
+									</div>
+									<div className="content ps-4">
+										<h3 dangerouslySetInnerHTML={ { __html: currentPost.title.rendered } }></h3>
+										<div className="date">
+											{currentPost.date}
+										</div>
+										<p dangerouslySetInnerHTML={ { __html: currentPost.excerpt.rendered } }></p>
+									</div>
 								</div>
 							);
 						})}
