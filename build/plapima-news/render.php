@@ -54,7 +54,7 @@ if ($actusAccueil->have_posts()):
 					<?php
 					endif;
 					?>
-					<div class="news rounded bg-white p-4 d-flex flex-md-row flex-column mb-4 mt-md-0 mt-4 ">
+					<div class="news rounded bg-white p-3 d-flex flex-md-row flex-column mb-4 mt-md-0 mt-4 ">
 						<?php
 						if (has_post_thumbnail()):
 							?>
