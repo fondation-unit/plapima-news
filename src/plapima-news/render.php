@@ -9,23 +9,25 @@ $actusAccueil = new WP_Query([
 if ($actusAccueil->have_posts()):
 	$i = 1;
 	?>
-	<div class="container py-md-6 py-4">
+	<div class="actus-home bg-primary-40 rounded pt-md-6 px-4">
 		<h2>Actualités</h2>
-		<div class="d-flex flex-md-row flex-column my-6">
+		<div class="d-flex flex-md-row flex-column mt-4 flex-wrap">
 			<?php
 			while ($actusAccueil->have_posts()):
 				$actusAccueil->the_post();
 
 				if ($i == 1) {
 					?>
-					<div class="first-news news col-md-5 col-12 pe-4">
+					<div class="first-news bg-white rounded news col-md-5 col-12 p-3">
 						<?php
 						if (has_post_thumbnail()):
 							?>
 							<div class="image rounded">
-								<?php
-								the_post_thumbnail('large', ['class' => 'rounded']);
-								?>
+								<a href="<?php echo get_the_permalink(); ?>">
+									<?php
+									the_post_thumbnail('large', ['class' => 'rounded']);
+									?>
+								</a>
 							</div>
 						<?php
 						endif;
@@ -38,8 +40,8 @@ if ($actusAccueil->have_posts()):
 							<div class="date mb-4">
 								<?php echo get_the_date(); ?>
 							</div>
-							<p><?php echo createNewsExcerpt(200, get_the_content(true, true)); ?></p>
-							<div class="bottom-link">
+							<p><?php echo createNewsExcerpt(300, get_the_content(true, true)); ?></p>
+							<div class="bottom-link mt-3">
 								<a href="<?php echo get_permalink(); ?>">Lire la suite</a>
 							</div>
 						</div>
@@ -48,19 +50,21 @@ if ($actusAccueil->have_posts()):
 				} else {
 					if ($i == 2):
 						?>
-						<div class="news-list d-flex flex-column col-md-7 col-12 ps-md-4">
+						<div class="news-list d-flex flex-column col-md-7 col-12 ps-5">
 					<?php
 					endif;
 					?>
-					<div class="news d-flex flex-md-row flex-column mb-4 mt-md-0 mt-4">
+					<div class="news rounded bg-white p-4 d-flex flex-md-row flex-column mb-4 mt-md-0 mt-4 ">
 						<?php
 						if (has_post_thumbnail()):
 							?>
-							<div class="col-md-4 d-flex align-items-center">
+							<div class="col-md-4 d-flex">
 								<div class="image rounded">
-									<?php
-									the_post_thumbnail('medium_large', ['class' => 'rounded']);
-									?>
+									<a href="<?php echo get_the_permalink(); ?>">
+										<?php
+										the_post_thumbnail('medium_large', ['class' => 'rounded']);
+										?>
+									</a>
 								</div>
 							</div>
 						<?php
@@ -73,7 +77,7 @@ if ($actusAccueil->have_posts()):
 							<div class="date">
 								<?php echo get_the_date(); ?>
 							</div>
-							<p><?php echo createNewsExcerpt(100, get_the_content(true, true)); ?></p>
+							<p><?php echo createNewsExcerpt(60, get_the_content(true, true)); ?></p>
 							<div class="bottom-link d-flex justify-content-end">
 								<a href="<?php echo get_permalink(); ?>">Lire la suite</a>
 							</div>
@@ -90,6 +94,9 @@ if ($actusAccueil->have_posts()):
 				$i++;
 			endwhile;
 			?>
+			<div class="link col-12 py-5-5">
+				<a href="<?php echo get_permalink(ACTUALITES); ?>">Découvrez toutes les actualités</a>
+			</div>
 		</div>
 	</div>
 <?php
