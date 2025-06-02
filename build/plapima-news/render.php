@@ -10,7 +10,7 @@ if ($actusAccueil->have_posts()):
 	$i = 1;
 	?>
 	<div class="actus-home bg-primary-40 rounded pt-md-6 px-4">
-		<h2>Actualités</h2>
+		<h2 class="mb-md-5 mb-4">Actualités</h2>
 		<div class="d-flex flex-md-row flex-column mt-4 flex-wrap">
 			<?php
 			while ($actusAccueil->have_posts()):
@@ -50,11 +50,11 @@ if ($actusAccueil->have_posts()):
 				} else {
 					if ($i == 2):
 						?>
-						<div class="news-list d-flex flex-column col-md-7 col-12 ps-5">
+						<div class="news-list d-flex flex-column col-md-7 col-12 ps-md-5">
 					<?php
 					endif;
 					?>
-					<div class="news rounded bg-white p-4 d-flex flex-md-row flex-column mb-4 mt-md-0 mt-4 ">
+					<div class="news rounded bg-white p-3 d-flex flex-md-row flex-column mb-4 mt-md-0 mt-4 ">
 						<?php
 						if (has_post_thumbnail()):
 							?>
