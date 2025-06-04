@@ -9,7 +9,7 @@ $actusAccueil = new WP_Query([
 if ($actusAccueil->have_posts()):
 	$i = 1;
 	?>
-	<div class="actus-home bg-primary-40 rounded pt-md-6 px-4">
+	<div class="actus-home bg-primary-40 rounded pt-md-6 p-4">
 		<h2 class="mb-md-5 mb-4">Actualités</h2>
 		<div class="d-flex flex-md-row flex-column mt-4 flex-wrap">
 			<?php
@@ -25,7 +25,8 @@ if ($actusAccueil->have_posts()):
 							<div class="image rounded">
 								<a href="<?php echo get_the_permalink(); ?>">
 									<?php
-									the_post_thumbnail('large', ['class' => 'rounded']);
+									$size = wp_is_mobile() ? 'medium' : 'large';
+									the_post_thumbnail($size, ['class' => 'rounded']);
 									?>
 								</a>
 							</div>
