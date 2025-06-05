@@ -19,27 +19,22 @@ if ($actusAccueil->have_posts()):
 				if ($i == 1) {
 					?>
 					<div class="first-news bg-white rounded news col-md-5 col-12 p-3">
-						<?php
-						if (has_post_thumbnail()):
-							?>
-							<div class="image rounded">
-								<a href="<?php echo get_the_permalink(); ?>">
-									<?php
-									$size = wp_is_mobile() ? 'medium' : 'large';
 
-									if (has_post_thumbnail()) {
-										the_post_thumbnail($size, ['class' => 'rounded']);
-									} else {
-										$img = getBasicImage('2025/06', 'img-bis-actus.png', $size);
-										echo '<img class="rounded wp-post-image" src="' . $img['src'] . '" alt="'
-											. $img['src'] . '">';
-									}
-									?>
-								</a>
-							</div>
-						<?php
-						endif;
-						?>
+						<div class="image rounded">
+							<a href="<?php echo get_the_permalink(); ?>">
+								<?php
+								$size = wp_is_mobile() ? 'medium' : 'large';
+
+								if (has_post_thumbnail()) {
+									the_post_thumbnail($size, ['class' => 'rounded']);
+								} else {
+									$img = getBasicImage('2025/06', 'img-bis-actus.png', $size);
+									echo '<img class="rounded wp-post-image" src="' . $img['src'] . '" alt="'
+										. $img['src'] . '">';
+								}
+								?>
+							</a>
+						</div>
 						<div class="content">
 							<h3 class="mt-5">
 								<a href="<?php echo get_permalink(); ?>"><?php echo get_the_title(); ?></a>
