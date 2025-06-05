@@ -26,7 +26,14 @@ if ($actusAccueil->have_posts()):
 								<a href="<?php echo get_the_permalink(); ?>">
 									<?php
 									$size = wp_is_mobile() ? 'medium' : 'large';
-									the_post_thumbnail($size, ['class' => 'rounded']);
+
+									if (has_post_thumbnail()) {
+										the_post_thumbnail($size, ['class' => 'rounded']);
+									} else {
+										$img = getBasicImage('2025/06', 'img-bis-actus.png', $size);
+										echo '<img class="rounded wp-post-image" src="' . $img['src'] . '" alt="'
+											. $img['src'] . '">';
+									}
 									?>
 								</a>
 							</div>
@@ -55,22 +62,25 @@ if ($actusAccueil->have_posts()):
 					<?php
 					endif;
 					?>
-					<div class="news rounded bg-white p-3 d-flex flex-md-row flex-column mb-4 mt-md-0 mt-4 ">
-						<?php
-						if (has_post_thumbnail()):
-							?>
-							<div class="col-md-4 d-flex">
-								<div class="image rounded">
-									<a href="<?php echo get_the_permalink(); ?>">
-										<?php
-										the_post_thumbnail('medium_large', ['class' => 'rounded']);
-										?>
-									</a>
-								</div>
+					<div class="news rounded bg-white p-3 d-flex flex-md-row flex-column mb-4 mt-md-0 <?php echo $i == 2
+						? 'mt-4' : ''; ?> ">
+
+						<div class="col-md-4 d-flex">
+							<div class="image rounded">
+								<a href="<?php echo get_the_permalink(); ?>">
+									<?php
+									$size = wp_is_mobile() ? 'medium' : 'medium_large';
+									if (has_post_thumbnail()) {
+										the_post_thumbnail($size, ['class' => 'rounded']);
+									} else {
+										$img = getBasicImage('2025/06', 'img-bis-actus.png', $size);
+										echo '<img class="rounded wp-post-image" src="' . $img['src'] . '" alt="'
+											. $img['src'] . '">';
+									}
+									?>
+								</a>
 							</div>
-						<?php
-						endif;
-						?>
+						</div>
 						<div class="content ps-md-4 mt-md-0 mt-3">
 							<h3>
 								<a href="<?php echo get_permalink(); ?>"><?php echo get_the_title(); ?></a>
@@ -94,8 +104,9 @@ if ($actusAccueil->have_posts()):
 				endif;
 				$i++;
 			endwhile;
+			wp_reset_postdata();
 			?>
-			<div class="link col-12 py-5-5">
+			<div class="link col-12 py-md-5-5 py-3">
 				<a href="<?php echo get_permalink(ACTUALITES); ?>">Découvrez toutes les actualités</a>
 			</div>
 		</div>
