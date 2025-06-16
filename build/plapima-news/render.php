@@ -26,10 +26,10 @@ if ($actusAccueil->have_posts()):
 								$size = wp_is_mobile() ? 'medium' : 'large';
 
 								if (has_post_thumbnail()) {
-									the_post_thumbnail($size, ['class' => 'rounded lozad']);
+									the_post_thumbnail($size, ['class' => 'rounded']);
 								} else {
 									$img = getBasicImage('2025/06', 'img-bis-actus.png', $size);
-									echo '<img class="rounded wp-post-image lozad" src="' . $img['src'] . '" alt="'
+									echo '<img class="rounded wp-post-image" src="' . $img['src'] . '" alt="'
 										. $img['src'] . '">';
 								}
 								?>
@@ -66,10 +66,10 @@ if ($actusAccueil->have_posts()):
 									<?php
 									$size = wp_is_mobile() ? 'medium' : 'medium_large';
 									if (has_post_thumbnail()) {
-										the_post_thumbnail($size, ['class' => 'rounded lozad']);
+										the_post_thumbnail($size, ['class' => 'rounded']);
 									} else {
 										$img = getBasicImage('2025/06', 'img-bis-actus.png', $size);
-										echo '<img class="rounded wp-post-image lozad" src="' . $img['src'] . '" alt="'
+										echo '<img class="rounded wp-post-image" src="' . $img['src'] . '" alt="'
 											. $img['src'] . '">';
 									}
 									?>
@@ -108,5 +108,12 @@ if ($actusAccueil->have_posts()):
 	</div>
 <?php
 else:
-	echo 'non';
+	?>
+	<div class="actus-home bg-primary-40 rounded py-md-6 p-4">
+		<h2 class="mb-md-5 mb-4">Actualités</h2>
+		<div class="d-flex flex-md-row flex-column mt-4 flex-wrap">
+			<p>Retrouvez bientôt ici les actualités de PLAPIMA !!</p>
+		</div>
+	</div>
+<?php
 endif;
