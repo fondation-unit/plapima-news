@@ -23,7 +23,7 @@ if ($actusAccueil->have_posts()):
 						<div class="image rounded">
 							<a href="<?php echo get_the_permalink(); ?>">
 								<?php
-								$size = wp_is_mobile() ? 'medium' : 'large';
+								$size = wp_is_mobile() ? 'medium' : 'medium_large';
 
 								if (has_post_thumbnail()) {
 									the_post_thumbnail($size, ['class' => 'rounded']);
