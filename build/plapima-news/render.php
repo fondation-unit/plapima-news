@@ -43,7 +43,8 @@ if ($actusAccueil->have_posts()):
 							<div class="date mb-4">
 								<?php echo get_the_date(); ?>
 							</div>
-							<p><?php echo createNewsExcerpt(300, get_the_content(true, true)); ?></p>
+							<p><?php echo createNewsExcerpt(300, get_the_content(false)); ?>
+							</p>
 							<div class="bottom-link mt-3">
 								<a href="<?php echo get_permalink(); ?>">Lire la suite</a>
 							</div>
@@ -83,7 +84,11 @@ if ($actusAccueil->have_posts()):
 							<div class="date">
 								<?php echo get_the_date(); ?>
 							</div>
-							<p><?php echo createNewsExcerpt(60, get_the_content(true, true)); ?></p>
+							<p><?php
+
+//								the_excerpt();
+								echo createNewsExcerpt(60, get_the_content(true, true));
+								?></p>
 							<div class="bottom-link d-flex justify-content-end">
 								<a href="<?php echo get_permalink(); ?>">Lire la suite</a>
 							</div>
