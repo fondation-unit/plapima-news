@@ -11,7 +11,7 @@ if ($actusAccueil->have_posts()):
 	<div class="actus-home pt-md-6 p-4">
 		<div class="d-flex flex-md-row flex-column justify-content-between titre-formations-home align-items-end mb-4">
 			<h2 class="mb-md-5 mb-4">Actualités</h2>
-			<a class="btn" href="<?php echo get_permalink(ACTUALITES); ?>">Découvrez toutes les actualités</a>
+			<a class="btn" href="<?php echo get_permalink(ACTUALITES); ?>">Toutes nos actualités et publications</a>
 		</div>
 		<div class="d-flex flex-md-row flex-column mt-4">
 			<?php
