@@ -35,8 +35,10 @@ if ($actusAccueil->have_posts()):
 							<?php echo get_the_title(); ?>
 						</h3>
 						<hr>
-						<p><?php echo createNewsExcerpt(60, get_the_content(true, true)); ?></p>
-						<div class="date mt-md-5 mt-4">
+						<div class="contenu">
+							<p><?php echo createNewsExcerpt(60, get_the_content(true, true)); ?></p>
+						</div>
+						<div class="date mt-4">
 							<?php echo get_the_date(); ?>
 						</div>
 
